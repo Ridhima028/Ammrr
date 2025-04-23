@@ -6,9 +6,13 @@ from surprise.model_selection import train_test_split
 # Load data
 @st.cache_data
 def load_data():
-    ratings = pd.read_csv("ratings.csv")
-    movies = pd.read_csv("movies.csv")
-    return ratings, movies
+   ratings = pd.read_csv("ratings.dat", sep="::", engine="python", 
+                      names=["userId", "movieId", "rating", "timestamp"])
+
+   movies = pd.read_csv("movies.dat", sep="::", engine="python", 
+                     names=["movieId", "title", "genres"])
+
+   return ratings, movies
 
 ratings, movies = load_data()
 
