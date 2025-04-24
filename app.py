@@ -6,6 +6,8 @@ from surprise.model_selection import train_test_split
 # Load data
 @st.cache_data
 def load_data():
+   ratings_url = "https://raw.githubusercontent.com/Ridhima028/Ammrr/main/ratings.dat"
+   movies_url = "https://raw.githubusercontent.com/Ridhima028/Ammrr/main/movies.dat"
    ratings = pd.read_csv("ratings.dat", sep="::", engine="python", 
                       names=["userId", "movieId", "rating", "timestamp"])
 
